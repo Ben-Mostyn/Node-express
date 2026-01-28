@@ -3,6 +3,7 @@ dotenv.config({ path: "./.env" });
 
 import express from "express";
 import notesRouter from "./routes/notes.route.js";
+import userRouter from "./routes/user.routes.js";
 import connectDB from "./config/database.js";
 import cors from "cors";
 
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/notes", notesRouter);
+app.use("/api/v1/user", userRouter);
 
 startServer();
 

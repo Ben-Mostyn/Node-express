@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import Homepage from "./Pages/Homepage";
+import Homepage from "./Pages/Homepage/Homepage";
 import CreatePage from "./Pages/CreatePage";
 import NoteDetails from "./Pages/NoteDetails";
 // import toast from "react-hot-toast";

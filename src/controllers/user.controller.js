@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 //! get a user by Login
 export const getUserByDetails = async (req, res) => {
   try {
-    console.log("Request body:", req.body); // <--- add this
+    console.log("Request body:", req.body);
 
     let { email, password } = req.body;
     if (!email || !password) {

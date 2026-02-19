@@ -1,10 +1,14 @@
 .navbar {
+  position: sticky;
+  top: 0;
   width: 100vw;
   margin: none;
   padding: none;
 }
 
 ul {
+  overflow: hidden;
+  display: block;
   display: flex;
   justify-content: center;
 }

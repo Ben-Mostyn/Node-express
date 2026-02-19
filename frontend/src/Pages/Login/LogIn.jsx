@@ -22,6 +22,11 @@ const LogIn = ({ hasLoggedIn, setHasLoggedIn, setUser }) => {
       }
 
       const data = await res.json();
+
+      //! set token
+      localStorage.setItem("token", data.token);
+      //! set user
+      localStorage.setItem("user", JSON.stringify(data.user));
       setUser(data.user);
       console.log(data);
 
@@ -42,6 +47,7 @@ const LogIn = ({ hasLoggedIn, setHasLoggedIn, setUser }) => {
               <textarea
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
+                aria-label="email"
               ></textarea>
             </div>
             <div className="formSection">
@@ -49,10 +55,17 @@ const LogIn = ({ hasLoggedIn, setHasLoggedIn, setUser }) => {
               <textarea
                 onChange={(e) => setPassword(e.target.value)}
                 name="password"
+                aria-label="password"
               ></textarea>
             </div>
             <div>
-              <button type="submit">Submit</button>
+              <button
+                className="logInBtn"
+                aria-label="login-submit"
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </>

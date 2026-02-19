@@ -1,0 +1,11 @@
+.addedItems {
+  margin: 10px 0;
+  border: gray 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formArrayInputBtn {
+  margin: 0 10px;
+}

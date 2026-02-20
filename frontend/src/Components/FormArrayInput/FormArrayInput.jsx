@@ -3,14 +3,16 @@ import classNames from "classnames";
 export const FormArrayInput = ({ name, ref, onClick, data }) => {
   return (
     <div>
-      <input name={name} type="text" ref={ref} />
-      <button
-        className="formArrayInputBtn"
-        type="button"
-        onClick={(e) => onClick(e, name, ref)}
-      >
-        Add item
-      </button>
+      <div className="inputSection">
+        <input name={name} type="text" ref={ref} />
+        <button
+          className="formArrayInputBtn"
+          type="button"
+          onClick={(e) => onClick(e, name, ref)}
+        >
+          Add task
+        </button>
+      </div>
       {data.length > 0 && (
         <p>
           You have added {data.length} {data.length === 1 ? "item" : "items"}

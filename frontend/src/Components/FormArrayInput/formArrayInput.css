@@ -6,6 +6,20 @@
   flex-direction: column;
 }
 
+input {
+  flex: 1;
+  min-width: 0;
+}
+
 .formArrayInputBtn {
   margin: 0 10px;
+  flex-shrink: 0;
+}
+
+.formArrayInput {
+}
+
+.inputSection {
+  width: 100%;
+  display: flex;
 }

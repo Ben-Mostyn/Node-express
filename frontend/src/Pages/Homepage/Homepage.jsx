@@ -5,6 +5,10 @@ import "./homepage.css";
 import { DailyLog } from "../DailyLog/DailyLog";
 // import jwt_decode from "jwt-decode";
 
+const date = new Date().toISOString().split("T")[0];
+const dateValues = new Date(date).toString().split(" ");
+const displayDate = `${dateValues[1]} ${dateValues[2]} ${dateValues[3]}`;
+
 const Homepage = () => {
   // const [notes, setNotes] = useState([]);
   const [hasLoggedIn, setHasLoggedIn] = useState(false);
@@ -33,8 +37,11 @@ const Homepage = () => {
 
       {hasLoggedIn && (
         <>
-          <h1>Welcome {user.username}</h1>
-          <DailyLog />
+          <div className="dailyLogHeading">
+            <h2 className="date"> Daily Log</h2>
+            <h3 className="date"> {displayDate}</h3>
+          </div>
+          <DailyLog date={date} />
         </>
       )}
     </div>

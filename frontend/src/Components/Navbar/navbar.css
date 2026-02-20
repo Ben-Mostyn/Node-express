@@ -2,15 +2,19 @@
   position: sticky;
   top: 0;
   width: 100vw;
-  margin: none;
-  padding: none;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(208, 208, 208, 0.344);
 }
 
 ul {
   overflow: hidden;
-  display: block;
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  align-items: center;
 }
 
 li {

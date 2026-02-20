@@ -1,20 +1,22 @@
 .dailyLogContainer {
-  height: 90%;
   width: 70%;
-}
-
-form {
-  /* height: 90%; */
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background-color: rgba(170, 190, 195, 0.213);
-  border-radius: 10px;
+  align-items: center;
+  gap: 15px;
 }
 
-.formSection {
-  /* background-color: rgba(170, 190, 195, 0.213);
-  border-radius: 10px; */
+.dailyLogContainer h3 {
+  font-weight: 200;
+}
+
+.formSelectSection {
+  display: flex;
+  padding: 10px;
+}
+
+.formArraySection {
+  padding: 10px;
 }
 
 .moreHelpIcon {
@@ -24,4 +26,35 @@ form {
 
 .formHeading {
   display: flex;
+}
+
+.planLog {
+  /* border: red solid 1px; */
+  width: 50%;
+  border: rgba(170, 190, 195, 0.213) 5px solid;
+  border-radius: 10px;
+}
+
+.actualLog {
+  /* border: yellow 1px solid; */
+  width: 50%;
+  border: rgba(170, 190, 195, 0.213) 3px solid;
+  border-radius: 15px;
+}
+
+.dailyLogForm {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.saveLogBtn {
+  width: 150px;
+  background-color: rgb(2, 101, 200);
+  color: white;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
 }

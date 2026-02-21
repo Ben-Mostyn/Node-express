@@ -9,6 +9,15 @@
   background-color: rgba(183, 183, 183, 0.244);
   padding: 5px 20px;
   border-radius: 5px;
+  display: flex;
+}
+
+.closeBtn {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 input {
@@ -27,4 +36,8 @@ input {
 .inputSection {
   width: 100%;
   display: flex;
+}
+
+.crossIcon {
+  height: 15px;
 }

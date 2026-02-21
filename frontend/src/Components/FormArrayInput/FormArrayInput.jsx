@@ -1,8 +1,23 @@
 import { useState } from "react";
 import "./FormArrayInput.css";
 import classNames from "classnames";
-export const FormArrayInput = ({ name, ref, onClick, data }) => {
+import CrossIcon from "../../Icons/CrossIcon.svg?react";
+export const FormArrayInput = ({
+  name,
+  ref,
+  onClick,
+  data,
+  setNewDailyLog,
+}) => {
   const [disabled, setDisabled] = useState(true);
+
+  const handleClick = (e, value) => {
+    e.preventDefault();
+    setNewDailyLog((prev) => ({
+      ...prev,
+      [name]: [...prev[name].filter((item) => item !== value)],
+    }));
+  };
   return (
     <div>
       <div className="inputSection">
@@ -34,7 +49,17 @@ export const FormArrayInput = ({ name, ref, onClick, data }) => {
         })}
       >
         {data.map((item) => (
-          <li>{item}</li>
+          <li>
+            {item}
+            <button
+              className="closeBtn"
+              onClick={(e) => handleClick(e, item)}
+              aria-label="remove item"
+              title="remove item"
+            >
+              <CrossIcon className="crossIcon" />
+            </button>
+          </li>
         ))}
       </div>
     </div>

@@ -75,6 +75,7 @@ export const DailyLog = ({ date }) => {
                 ref={plannedTaskRef}
                 onClick={handleArrayClick}
                 data={newDailyLog.plannedTasks}
+                setNewDailyLog={setNewDailyLog}
               />
             </div>
             <div className="formSelectSection">
@@ -117,6 +118,7 @@ export const DailyLog = ({ date }) => {
                 ref={actualTaskRef}
                 onClick={handleArrayClick}
                 data={newDailyLog.actualTasks}
+                setNewDailyLog={setNewDailyLog}
               />
             </div>
             <div className="formSelectSection">
@@ -157,6 +159,7 @@ export const DailyLog = ({ date }) => {
                 ref={distractionRef}
                 onClick={handleArrayClick}
                 data={newDailyLog.distractions}
+                setNewDailyLog={setNewDailyLog}
               />
             </div>
           </div>

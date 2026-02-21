@@ -1,14 +1,24 @@
+import { useState } from "react";
 import "./FormArrayInput.css";
 import classNames from "classnames";
 export const FormArrayInput = ({ name, ref, onClick, data }) => {
+  const [disabled, setDisabled] = useState(true);
   return (
     <div>
       <div className="inputSection">
-        <input name={name} type="text" ref={ref} />
+        <input
+          name={name}
+          type="text"
+          ref={ref}
+          onChange={(e) =>
+            e.target.value ? setDisabled(false) : setDisabled(true)
+          }
+        />
         <button
           className="formArrayInputBtn"
           type="button"
           onClick={(e) => onClick(e, name, ref)}
+          disabled={disabled}
         >
           Add task
         </button>

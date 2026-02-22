@@ -13,6 +13,8 @@ export const createDailyLog = async (req, res) => {
       actualFocus,
       distractions,
     } = req.body;
+
+    // user should need to plan at once but not necessarily fill out the completed tasks so these can be default values
     const newLog = new DailyLog({
       userId,
       date,
@@ -110,7 +112,7 @@ export const updateDailyLog = async (req, res) => {
     const updatedDailyLog = await DailyLog.findOneAndUpdate(
       { _id: id },
       { $set: updates },
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     );
 
     if (!updatedDailyLog) {

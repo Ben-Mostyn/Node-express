@@ -23,19 +23,22 @@ const dailyLogSchema = new Schema(
     // How focused does the user expect to be today
     expectedFocus: {
       type: Number,
-      min: 1,
+      min: 0,
       max: 5,
+      default: 0,
     },
 
     // How many hours the user expects to do
     expectedHours: {
       type: Number,
       min: 0,
+      default: 0,
     },
 
     actualHours: {
       type: Number,
       min: 0,
+      default: 0,
     },
 
     // the tasks the user actually plans to do.
@@ -47,8 +50,9 @@ const dailyLogSchema = new Schema(
     // How focused the user actually was
     actualFocus: {
       type: Number,
-      min: 1,
+      min: 0,
       max: 5,
+      default: 0,
     },
 
     // Logs the amount of distractions to see how long the user spent doing what
@@ -59,7 +63,7 @@ const dailyLogSchema = new Schema(
   },
   {
     timestamps: true, // createdAt, updatedAt
-  }
+  },
 );
 
 export const DailyLog = mongoose.model("DailyLog", dailyLogSchema);

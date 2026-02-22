@@ -1,11 +1,20 @@
 const url = "http://localhost:5000/api/v1/daily-log/";
-const token = localStorage.getItem("token");
+
+const getAuthHeaders = () => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("The token could not be found in getAuthHeaders");
+  }
+
+  return `Bearer ${token}`;
+};
 
 export const dailyLogFetch = async (date) => {
   try {
     const response = await fetch(`${url}${date}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: getAuthHeaders(),
       },
     });
 
@@ -29,14 +38,14 @@ export const dailyLogCreate = async (payload) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: getAuthHeaders(),
       },
       body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
       throw new Error(
-        "There was an error with the response when updating the daily log"
+        "There was an error with the response when updating the daily log",
       );
     }
 

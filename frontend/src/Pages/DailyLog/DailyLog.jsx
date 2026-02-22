@@ -88,7 +88,9 @@ export const DailyLog = ({ date }) => {
               <Select
                 name="expectedFocus"
                 onChange={handleChange}
-                options={options}
+                // options={options}
+                min={0}
+                max={5}
               />
             </div>
             <div className="formSelectSection">
@@ -102,6 +104,8 @@ export const DailyLog = ({ date }) => {
                 name="expectedHours"
                 onChange={handleChange}
                 options={options}
+                min={0}
+                max={8}
               />
             </div>
           </div>
@@ -132,6 +136,8 @@ export const DailyLog = ({ date }) => {
                 name="actualFocus"
                 onChange={handleChange}
                 options={options}
+                min={0}
+                max={5}
               />
             </div>
             <div className="formSelectSection">
@@ -145,6 +151,8 @@ export const DailyLog = ({ date }) => {
                 name="actualHours"
                 onChange={handleChange}
                 options={options}
+                min={0}
+                max={8}
               />
             </div>
             <div className="formArraySection">

@@ -28,7 +28,25 @@ export const dailyLogFetch = async (date) => {
   }
 };
 
-export const dailyLogUpdate = () => {};
+export const dailyLogUpdate = async (id, payload) => {
+  try {
+    const response = await fetch(`${url}${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAuthHeaders(),
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!response) {
+      throw new Error("There was an error fetching the request");
+    }
+
+    return response.json();
+  } catch (error) {
+    throw new Error(error, "Error updating daily log FE");
+  }
+};
 
 export const dailyLogDelete = () => {};
 

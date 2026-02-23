@@ -57,6 +57,15 @@ export const DailyLog = ({ date }) => {
 
     ref.current.value = "";
   };
+  const {
+    expectedFocus,
+    expectedHours,
+    actualFocus,
+    actualHours,
+    distractions,
+    plannedTasks,
+    actualTasks,
+  } = data?.dailyLog ?? {};
 
   if (!data?.dailyLog) {
     return (
@@ -184,14 +193,35 @@ export const DailyLog = ({ date }) => {
   }
 
   return (
-    <div>
-      <h1>This is the daily log</h1>
+    <div className="dailyLogContainer">
+      <form className="dailyLogForm">
+        <div className="planLog">
+          <h3>Planned tasks </h3>
+          {plannedTasks}
+          <h3>Expected focus </h3>
+          {expectedFocus}
+          <h3>Expected hours </h3>
+          {expectedHours}
+        </div>
+        <div className="actualLog">
+          <h3>Actual tasks </h3>
+          {actualTasks ? actualTasks : <p>You have no added tasks</p>}
+          <h3>Actual focus </h3>
+          {actualFocus}
+          <h3>Actual hours </h3>
+          {actualHours}
+          <h3>Distractions</h3>
+          {distractions}
+        </div>
+      </form>
+
+      {/* <h1>This is the daily log</h1>
       <p>Expected focus {data?.dailyLog.expectedFocus}</p>
       <p>Actual focus {data?.dailyLog.actualFocus}</p>
       <p>Planned tasks {data?.dailyLog.plannedTasks}</p>
       <p>Actual tasks focus {data?.dailyLog.actualTasks}</p>
       <p>Distractions {data?.dailyLog.distractions}</p>
-      <p>Expected hours {data?.dailyLog.expectedHours}</p>
+      <p>Expected hours {data?.dailyLog.expectedHours}</p> */}
     </div>
   );
 };

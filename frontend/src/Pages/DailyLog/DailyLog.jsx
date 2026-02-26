@@ -59,7 +59,7 @@ export const DailyLog = ({ date }) => {
 
   useEffect(() => {
     const saveData = () => {
-      if (data) {
+      if (data?.dailyLog) {
         setNewDailyLog((prev) => ({
           ...prev,
           plannedTasks: data.dailyLog.plannedTasks ?? [],

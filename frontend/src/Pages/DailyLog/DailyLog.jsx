@@ -5,7 +5,7 @@ import {
   dailyLogUpdate,
 } from "./DailyLogQueries";
 import { useEffect } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import "./dailyLog.css";
 import { DailyLogForm } from "../../Components/DailyLogForm/DailyLogForm";
 
@@ -28,18 +28,25 @@ export const DailyLog = ({ date }) => {
   const actualTaskRef = useRef(null);
   const plannedTaskRef = useRef(null);
   const distractionRef = useRef(null);
+  const queryClient = useQueryClient();
 
   const { data } = useQuery({
     queryFn: () => dailyLogFetch(date),
-    queryKey: ["dailyLog"], // react query uses this key for caching etc
+    queryKey: ["dailyLog", date], // react query uses this key for caching etc
   });
 
   const { mutateAsync } = useMutation({
     mutationFn: dailyLogCreate,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dailyLog", date] });
+    },
   });
 
   const { mutateAsync: editDailyLog } = useMutation({
     mutationFn: ({ id, payload }) => dailyLogUpdate(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dailyLog", date] });
+    },
   });
 
   const handleChange = (e, property) => {

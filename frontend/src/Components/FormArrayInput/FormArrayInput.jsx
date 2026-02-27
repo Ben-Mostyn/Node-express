@@ -56,6 +56,7 @@ export const FormArrayInput = ({
               onClick={(e) => handleClick(e, item)}
               aria-label="remove item"
               title="remove item"
+              disabled={disabled}
             >
               <CrossIcon className="crossIcon" />
             </button>

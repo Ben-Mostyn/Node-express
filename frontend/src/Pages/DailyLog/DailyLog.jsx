@@ -56,12 +56,6 @@ export const DailyLog = ({ date }) => {
     }));
   };
 
-  //! Delete once finished
-  useEffect(() => {
-    console.log({ newDailyLog, data });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newDailyLog]);
-
   useEffect(() => {
     const saveData = () => {
       if (data?.dailyLog) {
@@ -120,10 +114,19 @@ export const DailyLog = ({ date }) => {
 
   return (
     <div className="dailyLogContainer">
-      <form className="dailyLogForm">
+      <div className="dailyLogForm">
         <div className="planLog">
           <h3>Planned tasks </h3>
-          {plannedTasks}
+          {plannedTasks.length ? (
+            <ul className="arrayList">
+              {" "}
+              {plannedTasks.map((item) => (
+                <li className="arrayItem">{item}</li>
+              ))}{" "}
+            </ul>
+          ) : (
+            <p>You havevn't added any planned tasks</p>
+          )}
           <h3>Expected focus </h3>
           {expectedFocus}
           <h3>Expected hours </h3>
@@ -131,15 +134,31 @@ export const DailyLog = ({ date }) => {
         </div>
         <div className="actualLog">
           <h3>Actual tasks </h3>
-          {actualTasks ? actualTasks : <p>You have no added tasks</p>}
+          {actualTasks.length ? (
+            <ul className="arrayList">
+              {actualTasks.map((item) => (
+                <li className="arrayItem">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>You haven't added any completed tasks</p>
+          )}
           <h3>Actual focus </h3>
           {actualFocus}
           <h3>Actual hours </h3>
           {actualHours}
           <h3>Distractions</h3>
-          {distractions}
+          {distractions.length ? (
+            <ul className="arrayList">
+              {distractions.map((item) => (
+                <li className="arrayItem">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>You haven't added any distractions</p>
+          )}
         </div>
-      </form>
+      </div>
       <button onClick={() => setOpenEditing(true)}>Edit your Daily log</button>
 
       {openEditing && (

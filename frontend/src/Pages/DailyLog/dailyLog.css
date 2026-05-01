@@ -58,3 +58,16 @@
   padding: 7px;
   border-radius: 5px;
 }
+
+.arrayList {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 5px 10px;
+  height: fit-content;
+}
+
+.arrayItem {
+  margin: 0;
+  padding: 0px 5px;
+}

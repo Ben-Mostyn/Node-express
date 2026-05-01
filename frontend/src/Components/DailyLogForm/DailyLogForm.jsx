@@ -19,16 +19,6 @@ export const DailyLogForm = ({
   data,
   setOpenEditing,
 }) => {
-  console.log({
-    handleArrayClick,
-    newDailyLog,
-    setNewDailyLog,
-    handleChange,
-    mutateAsync,
-    editDailyLog,
-    data,
-    setOpenEditing,
-  });
   return (
     <div className="dailyLogContainer">
       <form className="dailyLogForm">

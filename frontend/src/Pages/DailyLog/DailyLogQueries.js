@@ -18,6 +18,11 @@ export const dailyLogFetch = async (date) => {
       },
     });
 
+    if (response.status === 401) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+    }
+
     if (!response.ok) {
       throw new Error("Could not fetch daily log", response.status);
     }

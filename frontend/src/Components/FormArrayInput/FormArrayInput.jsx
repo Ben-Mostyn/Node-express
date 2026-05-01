@@ -11,13 +11,15 @@ export const FormArrayInput = ({
 }) => {
   const [disabled, setDisabled] = useState(true);
 
-  const handleClick = (e, value) => {
+  const handleClick = (e, index) => {
     e.preventDefault();
+
     setNewDailyLog((prev) => ({
       ...prev,
-      [name]: [...prev[name].filter((item) => item !== value)],
+      [name]: prev[name].filter((_, i) => i !== index),
     }));
   };
+
   return (
     <div>
       <div className="inputSection">
@@ -48,15 +50,15 @@ export const FormArrayInput = ({
           addedItems: data.length > 0,
         })}
       >
-        {data.map((item) => (
-          <li>
+        {data.map((item, index) => (
+          <li key={`${item}-${index}`}>
             {item}
             <button
+              type="button"
               className="closeBtn"
-              onClick={(e) => handleClick(e, item)}
+              onClick={(e) => handleClick(e, index)}
               aria-label="remove item"
               title="remove item"
-              disabled={disabled}
             >
               <CrossIcon className="crossIcon" />
             </button>

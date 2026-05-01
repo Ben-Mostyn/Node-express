@@ -18,6 +18,7 @@ const Homepage = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
+    console.log(token);
 
     if (token && storedUser) {
       // wrap state updates in a function to avoid the warning
@@ -42,6 +43,7 @@ const Homepage = () => {
             <h3 className="date"> {displayDate}</h3>
           </div>
           <DailyLog date={date} />
+          <p>{user ? user.username : "Hello"}</p>
         </>
       )}
     </div>
